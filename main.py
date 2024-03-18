@@ -22,11 +22,11 @@ def obtener(celda):
 app = FastAPI()
 
 game = pd.read_parquet(r"DATA_LIMPIA/gameclean.parquet").applymap(obtener)
-df_PlayTimeGenre=pd.read_parquet(r"FUNCIONES\df_PlayTimeGenre.parquet")
-df_UserForGenre = pd.read_parquet(r"FUNCIONES\df_UserForGenre.parquet")
-df_UserRecommend = pd.read_parquet(r"FUNCIONES\df_UserRecommend.parquet")
-df_UsersNotRecommend = pd.read_parquet(r"FUNCIONES\df_UsersNotRecommend.parquet")
-df_Sentiment_Analysis = pd.read_parquet(r"FUNCIONES\df_Sentiment_Analysis.parquet")
+df_PlayTimeGenre=pd.read_parquet(r"FUNCIONES/df_PlayTimeGenre.parquet")
+df_UserForGenre = pd.read_parquet(r"FUNCIONES/df_UserForGenre.parquet")
+df_UserRecommend = pd.read_parquet(r"FUNCIONES/df_UserRecommend.parquet")
+df_UsersNotRecommend = pd.read_parquet(r"FUNCIONES/df_UsersNotRecommend.parquet")
+df_Sentiment_Analysis = pd.read_parquet(r"FUNCIONES/df_Sentiment_Analysis.parquet")
 
 
 #PRIMERA FUNCIÓN
