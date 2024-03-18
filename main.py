@@ -21,7 +21,7 @@ def obtener(celda):
 #iniciamos FastAPI y el dataframe
 app = FastAPI()
 
-game = pd.read_parquet(r"DATA_LIMPIA/gameclean.parquet").applymap(obtener)
+game = pd.read_parquet(r"DATA_LIMPIA/gameclean.parquet").map(obtener)
 df_PlayTimeGenre=pd.read_parquet(r"FUNCIONES/df_PlayTimeGenre.parquet")
 df_UserForGenre = pd.read_parquet(r"FUNCIONES/df_UserForGenre.parquet")
 df_UserRecommend = pd.read_parquet(r"FUNCIONES/df_UserRecommend.parquet")
