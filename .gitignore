@@ -1,0 +1,5 @@
+/venv
+venv
+venv/
+DATASET_ORIGINAL/
+pruebas.ipynb
