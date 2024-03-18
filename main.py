@@ -1,27 +1,15 @@
 from fastapi import FastAPI
 import pandas as pd
 import numpy as np
-import ast
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-
-#definimos la función que transformará en lista todos aquellos datos que perdieron esta condición
-def obtener(celda):
-    if pd.isnull(celda):
-        return None
-    if isinstance(celda, str) and celda.startswith("[") and celda.endswith("]"):
-        try:
-            return ast.literal_eval(celda)
-        except (ValueError, SyntaxError):
-            return celda  # Devuelve la celda original si no se puede convertir a lista
-    return celda
 
 
 #iniciamos FastAPI y el dataframe
 app = FastAPI()
 
-game = pd.read_parquet(r"DATA_LIMPIA/gameclean.parquet").map(obtener)
+game = pd.read_parquet(r"DATA_LIMPIA/gameclean.parquet")
 df_PlayTimeGenre=pd.read_parquet(r"FUNCIONES/df_PlayTimeGenre.parquet")
 df_UserForGenre = pd.read_parquet(r"FUNCIONES/df_UserForGenre.parquet")
 df_UserRecommend = pd.read_parquet(r"FUNCIONES/df_UserRecommend.parquet")
