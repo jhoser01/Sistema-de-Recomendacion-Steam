@@ -24,7 +24,9 @@ En esta etapa se realizo el EDA, analisis exploratorio de datos donde empezamos 
 
 ## Sistema de recomendacion
 Una vez completadas las  etapas anteriores los datos se encuentran preparados para realazar las respectivas funciones y el sistema de recomendacion los cuales podran ser consultados mediante el framework FastAPI 
-#### Linkl FastAPI : 
+#### Linkl FastAPI : https://sistema-de-recomendacion-steam.onrender.com
+
+
 
 
     def PlayTimeGenre( genero : str ): Debe devolver año con mas horas jugadas para dicho género.
