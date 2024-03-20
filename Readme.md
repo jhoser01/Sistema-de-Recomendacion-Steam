@@ -41,10 +41,10 @@ Una vez completadas las  etapas anteriores los datos se encuentran preparados pa
     def UsersNotRecommend( año : int ): Devuelve el top 3 de juegos MENOS recomendados por usuarios para el año dado. (reviews.recommend = False y comentarios negativos)
 
 
-    def sentiment_analysis( empresa desarrolladora : str ): Según la empresa desarrolladora, se devuelve un diccionario con el nombre de la desarrolladora como llave y una lista con la cantidad total de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento como valor.
-
-
     def sentiment_analysis(año : int ): Según el año de lanzamiento, se devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento. 
+
+
+    def recomendacion_juego(product_id: int): Devuelve un top 5 de los juegos recomendados para el juego dado.
 
 
 

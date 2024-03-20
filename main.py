@@ -18,7 +18,7 @@ df_Sentiment_Analysis = pd.read_parquet(r"FUNCIONES/df_Sentiment_Analysis.parque
 
 
 #PRIMERA FUNCIÓN
-@app.get('/PlayTimeGenre/{genero}')
+@app.get('/PlayTimeGenre/{genero}', name='Debe devolver año con mas horas jugadas para dicho género')
 def PlayTimeGenre(genero : str):
     # Filtrar el DataFrame para obtener solo las filas que contienen el género específico
     filtro_genero = df_PlayTimeGenre['genres'].str.contains(genero, case=False, na=False)
@@ -34,7 +34,7 @@ def PlayTimeGenre(genero : str):
 
 
 #SEGUNDA FUNCIÓN
-@app.get('/userforgenre/{genero}')
+@app.get('/userforgenre/{genero}', name='Debe devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año')
 def userforgenre(genero: str):
     # Filtrar el DataFrame para el género especificado
     filtro_genero = df_UserForGenre['genres'].str.contains(genero, case=False, na=False)
@@ -62,7 +62,7 @@ def userforgenre(genero: str):
 
 
 #TERCERA FUNCIÓN
-@app.get('/UsersRecommend/{year}')
+@app.get('/UsersRecommend/{year}', name='Devuelve el top 3 de juegos MÁS recomendados por usuarios para el año dado')
 def UsersRecommend(year: int):
     
     df = df_UserRecommend[df_UserRecommend['year'] == str(year)]
@@ -80,7 +80,7 @@ def UsersRecommend(year: int):
 
 
 #CUARTA FUNCIÓN
-@app.get('/UsersNotRecommend/{year}')
+@app.get('/UsersNotRecommend/{year}', name='Devuelve el top 3 de juegos MENOS recomendados por usuarios para el año dado')
 def UsersNotRecommend(year: int):
     
     df = df_UsersNotRecommend[df_UsersNotRecommend['year'] == str(year)]
@@ -97,7 +97,7 @@ def UsersNotRecommend(year: int):
 
 
 #QUINTA FUNCIÓN
-@app.get('/Sentiment_analysis/{year}')
+@app.get('/Sentiment_analysis/{year}', name='Según el año de lanzamiento, se devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento')
 def Sentiment_analysis(year: int):
     # Filtra el DataFrame para obtener la fila correspondiente al año de lanzamiento
     
@@ -124,7 +124,7 @@ def Sentiment_analysis(year: int):
 
 
 #FUNCIÓN DE RECOMENDACIÓN
-@app.get('/recomendacion_juego/{product_id}')
+@app.get('/recomendacion_juego/{product_id}', name='Devuelve un top 5 de los juegos recomendados para el juego dado')
 def recomendacion_juego(product_id: int):
     try:
         # Obtener el ID del juego
