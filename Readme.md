@@ -51,7 +51,7 @@ Una vez completadas las  etapas anteriores los datos se encuentran preparados pa
 
 
 
-## Video
+## Video https://drive.google.com/drive/u/2/folders/1_kX32-DsDOH4kwvKbltyDmXKWZx5h4Oy
 En el siguiente enlace podras encontrar un video con un pequeño resumen acerca del proyecto
 #### Link: 
 
