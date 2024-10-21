@@ -1,6 +1,5 @@
 # Analisis de datos de la plataforma STEAM
 
-Este es mi proyecto de ciencia de datos para la etapa de labs del bootcamp de soy henry donde buscaremos implementar las habilidades obtenidas durante la etapa de aprendizaje.
 ## Descripción
 
 Tomando el rol de cientifico de datos de la plataforma STEAM en este proyecto que tiene como objetivo crear un sistema de recomendacion de los juegos basado en los datos suministrados por la plataforma. Se llevaran acabo 3 diferentes procesos, desde la extraccion y tratamiento de los datos pasando por un analisis de los mismos hasta la implementacion del sistema de recomendacion.
@@ -13,13 +12,13 @@ Tomando el rol de cientifico de datos de la plataforma STEAM en este proyecto qu
 - Render
 
 ## Etapa de ingenieria de datos
-En esta etapa de ingenieria de datos serralizop un proceso de ETL, extraccion, tratamiento y carga donde se recibieron 3 archivos JSON con informacion acerca de los videjuegos, los jugadores y las reseñas de estos.
+En esta etapa de ingenieria de datos se realizó un proceso de ETL, extraccion, tratamiento y carga donde se recibieron 3 archivos JSON con informacion acerca de los videjuegos, los jugadores y las reseñas de estos.
 #### Link: https://github.com/jhoser01/Sistema-de-Recomendacion-Steam/tree/main/ETL
 ### Fuente de los datos 
 https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj
 
 ## Etapa de analisis de datos
-En esta etapa se realizo el EDA, analisis exploratorio de datos donde empezamos con una conversion de los datos verificanddo datos nulos, duplicados, outliers y el formato de los datos para posteriormente realizar el analisis de estos mediante garficos.
+En esta etapa se realizo el EDA, analisis exploratorio de datos donde empezamos con una conversion de los datos verificanddo datos nulos, duplicados, outliers y el formato de los datos para posteriormente realizar el analisis de estos mediante gráficos.
 #### Link: https://github.com/jhoser01/Sistema-de-Recomendacion-Steam/tree/main/EDA
 
 ## Sistema de recomendacion
@@ -48,12 +47,6 @@ Una vez completadas las  etapas anteriores los datos se encuentran preparados pa
 
 
 
-
-
-
-## Video https://drive.google.com/drive/u/2/folders/1_kX32-DsDOH4kwvKbltyDmXKWZx5h4Oy
-En el siguiente enlace podras encontrar un video con un pequeño resumen acerca del proyecto
-#### Link: 
 
 ## Requisitos
 
