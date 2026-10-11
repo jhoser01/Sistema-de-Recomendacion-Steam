@@ -1,64 +1,73 @@
-# Analisis de datos de la plataforma STEAM
+# Steam Game Recommendation System
 
-## Descripción
+Proyecto de **ingeniería de datos, análisis exploratorio y recomendación de videojuegos** con Python y FastAPI. Procesa información de juegos, usuarios y reseñas para habilitar consultas analíticas y recomendaciones basadas en contenido.
 
-Tomando el rol de cientifico de datos de la plataforma STEAM en este proyecto que tiene como objetivo crear un sistema de recomendacion de los juegos basado en los datos suministrados por la plataforma. Se llevaran acabo 3 diferentes procesos, desde la extraccion y tratamiento de los datos pasando por un analisis de los mismos hasta la implementacion del sistema de recomendacion.
+**Tecnologías identificadas:** Python · pandas · scikit-learn · FastAPI · Parquet · TF-IDF.
 
-## Herramientas usadas
-- Visual Studio Code como editor de codigo
-- Python como lenguaje de programacion (pandas, sklearn, numpy, matplotlib, seaborn, etc)
-- GitHub como repositorio del proyecto
-- FastAPI como framework
-- Render
+> **Estado:** proyecto existente documentado a partir de su código y su README original. El servicio desplegado y las métricas del recomendador no se han verificado durante esta revisión.
 
-## Etapa de ingenieria de datos
-En esta etapa de ingenieria de datos se realizó un proceso de ETL, extraccion, tratamiento y carga donde se recibieron 3 archivos JSON con informacion acerca de los videjuegos, los jugadores y las reseñas de estos.
-#### Link: https://github.com/jhoser01/Sistema-de-Recomendacion-Steam/tree/main/ETL
-### Fuente de los datos 
-https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj
+## Visión general
 
-## Etapa de analisis de datos
-En esta etapa se realizo el EDA, analisis exploratorio de datos donde empezamos con una conversion de los datos verificanddo datos nulos, duplicados, outliers y el formato de los datos para posteriormente realizar el analisis de estos mediante gráficos.
-#### Link: https://github.com/jhoser01/Sistema-de-Recomendacion-Steam/tree/main/EDA
+~~~mermaid
+flowchart LR
+    A["Datos de juegos,<br/>usuarios y reseñas"] --> B["ETL"]
+    B --> C["Análisis exploratorio"]
+    C --> D["Tablas preparadas<br/>Parquet"]
+    D --> E["Consultas FastAPI"]
+    D --> F["TF-IDF + similitud coseno"]
+    F --> E
+~~~
 
-## Sistema de recomendacion
-Una vez completadas las  etapas anteriores los datos se encuentran preparados para realazar las respectivas funciones y el sistema de recomendacion los cuales podran ser consultados mediante el framework FastAPI 
-#### Linkl FastAPI : https://sistema-de-recomendacion-steam.onrender.com
+| Etapa | Recursos |
+| --- | --- |
+| Transformación y limpieza | [ETL](ETL) |
+| Análisis exploratorio | [EDA](EDA) |
+| Datos preparados | [DATA_LIMPIA](DATA_LIMPIA) |
+| Tablas para consultas | [FUNCIONES](FUNCIONES) |
+| API | [main.py](main.py) |
+| Dependencias | [requirements.txt](requirements.txt) |
 
+## Funcionalidades implementadas en el código
 
+| Ruta | Propósito |
+| --- | --- |
+| /PlayTimeGenre/{genero} | Consultar el año de mayor tiempo de juego por género. |
+| /userforgenre/{genero} | Resumir actividad y horas de juego de usuarios por género. |
+| /UsersRecommend/{year} | Consultar juegos recomendados por año. |
+| /UsersNotRecommend/{year} | Consultar juegos no recomendados por año. |
+| /Sentiment_analysis/{year} | Consultar conteos de sentimiento por año. |
+| /recomendacion_juego/{product_id} | Proponer juegos similares según géneros y etiquetas. |
 
+La función de recomendación de **main.py** crea representaciones TF-IDF a partir de géneros y etiquetas y calcula similitud coseno entre el juego consultado y otros juegos.
 
-    def PlayTimeGenre( genero : str ): Debe devolver año con mas horas jugadas para dicho género.
+## Datos y método
 
+El proyecto parte de archivos de datos de Steam, prepara tablas con ETL y EDA, y consulta conjuntos Parquet desde FastAPI. El README original incluye una [carpeta externa con datos](https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj); revisa su procedencia y permisos antes de reutilizarla.
 
-    def UserForGenre( genero : str ): Debe devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año.
+**Nota técnica:** las rutas de la API dependen de los archivos Parquet esperados en **DATA_LIMPIA** y **FUNCIONES**. La existencia de estos directorios no garantiza que todas las consultas puedan ejecutarse sin preparación adicional.
 
+## Instalación de referencia
 
-    def UsersRecommend( año : int ): Devuelve el top 3 de juegos MÁS recomendados por usuarios para el año dado. (reviews.recommend = True y comentarios positivos/neutrales)
+En una instalación de Python, desde la raíz del repositorio:
 
+~~~bash
+python -m venv .venv
+python -m pip install -r requirements.txt
+python -m uvicorn main:app --reload
+~~~
 
-    def UsersNotRecommend( año : int ): Devuelve el top 3 de juegos MENOS recomendados por usuarios para el año dado. (reviews.recommend = False y comentarios negativos)
+Estos son comandos de referencia basados en la estructura existente: **no se han ejecutado ni validado** en esta actualización. En un entorno real, activa primero el entorno virtual y verifica que estén presentes los datos Parquet que espera **main.py**.
 
+El README original apuntaba a https://sistema-de-recomendacion-steam.onrender.com como despliegue; **no se ha verificado que continúe disponible**.
 
-    def sentiment_analysis(año : int ): Según el año de lanzamiento, se devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento. 
+## Alcance y tareas pendientes
 
+- Documentar origen, licencias y volumen de datos.
+- Mostrar consultas con respuestas reales y verificables.
+- Definir una evaluación cuantitativa de las recomendaciones.
+- Revisar archivos generados como **__pycache__** que están incluidos en el repositorio.
+- Mejorar pruebas y reproducibilidad, sin dar por confirmados resultados no medidos.
 
-    def recomendacion_juego(product_id: int): Devuelve un top 5 de los juegos recomendados para el juego dado.
+---
 
-
-
-
-## Requisitos
-
-Asegúrate de tener instaladas las siguientes bibliotecas antes de ejecutar el código:
-
-- pandas
-- numpy
-- scikit-learn
-- matplotlib
-- seaborn
-
-Puedes instalarlos usando el siguiente comando:
-
-```bash
-pip install pandas numpy scikit-learn matplotlib seaborn
+**Enfoque:** data engineering, análisis exploratorio y recomendaciones basadas en contenido.
